@@ -6,6 +6,41 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
+<config key="col_x_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="col_x" type="xstring" value="media_graduated"/>
+<config key="col_y_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="col_y" type="xstring" value="Prediction (media_graduated)"/>
+<config key="Item_Size_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="Item_Size" type="xdouble" value="10.0"/>
+<config key="CGG_NR_ROW_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="CGG_NR_ROW" type="xint" value="2500"/>
+<config key="cfg_autoRange_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="cfg_autoRange" type="xboolean" value="true"/>
+<config key="CFG_SHOW_HISTORY_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="CFG_SHOW_HISTORY" type="xboolean" value="false"/>
+<config key="CFG_TYPE_IMAGE_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="CFG_TYPE_IMAGE" type="xstring" value="PNG"/>
 <config key="graph_title_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMN_string_disact"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -22,11 +57,6 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="graph_width" type="xint" value="400"/>
-<config key="CFG_TYPE_IMAGE_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="CFG_TYPE_IMAGE" type="xstring" value="PNG"/>
 <config key="CFG_BackColor_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_color"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -57,36 +87,6 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="CFG_FSScale" type="xdouble" value="1.0"/>
-<config key="col_x_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="col_x" type="xstring" value="age"/>
-<config key="col_y_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="col_y" type="xstring" value="Medu"/>
-<config key="Item_Size_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="Item_Size" type="xdouble" value="10.0"/>
-<config key="CGG_NR_ROW_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="CGG_NR_ROW" type="xint" value="2500"/>
-<config key="cfg_autoRange_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="cfg_autoRange" type="xboolean" value="true"/>
-<config key="CFG_SHOW_HISTORY_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="CFG_SHOW_HISTORY" type="xboolean" value="false"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -109,7 +109,7 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObjectSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObject"/>
-<entry key="port_object_summary" type="xstring" value="PNG Image 600 x 400 with 9 KB"/>
+<entry key="port_object_summary" type="xstring" value="PNG Image 600 x 400 with 16 KB"/>
 <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
 <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
@@ -117,6 +117,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="db41a54c-7ac1-4d30-8882-025f0e8980e0"/>
+<entry key="file_store_id" type="xstring" value="887e4fc8-2567-4648-957b-35dba439afdc"/>
 </config>
 </config>

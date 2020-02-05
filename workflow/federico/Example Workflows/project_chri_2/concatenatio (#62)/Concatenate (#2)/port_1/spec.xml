@@ -41,7 +41,7 @@
 <config key="lower_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="-1.1013815169844032"/>
+<entry key="DoubleCell" type="xdouble" value="0.06135494139385428"/>
 </config>
 </config>
 <config key="upper_bound">
@@ -65,13 +65,13 @@
 <config key="lower_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="0.005277775894813892"/>
+<entry key="DoubleCell" type="xdouble" value="0.0037315213731371555"/>
 </config>
 </config>
 <config key="upper_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="0.15793817110705094"/>
+<entry key="DoubleCell" type="xdouble" value="0.03131057907176522"/>
 </config>
 </config>
 </config>
@@ -89,13 +89,13 @@
 <config key="lower_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="-6.973497978762105"/>
+<entry key="DoubleCell" type="xdouble" value="5.161822425597714"/>
 </config>
 </config>
 <config key="upper_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="97.48999521405719"/>
+<entry key="DoubleCell" type="xdouble" value="130.9092123119281"/>
 </config>
 </config>
 </config>
@@ -119,7 +119,7 @@
 <config key="upper_bound">
 <entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <config key="org.knime.core.data.def.DoubleCell">
-<entry key="DoubleCell" type="xdouble" value="0.0012844263769615782"/>
+<entry key="DoubleCell" type="xdouble" value="9.009260111270123E-7"/>
 </config>
 </config>
 </config>

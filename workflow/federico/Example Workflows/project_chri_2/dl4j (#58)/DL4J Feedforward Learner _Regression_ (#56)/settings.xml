@@ -10,7 +10,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="training_iterations" type="xint" value="50"/>
+<entry key="training_iterations" type="xint" value="100"/>
 <config key="optimization_algorithm_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -128,14 +128,14 @@
 <entry key="use_drop_connect" type="xboolean" value="false"/>
 <config key="global_weight_init_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="false"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="global_weight_init" type="xstring" value="XAVIER"/>
+<entry key="global_weight_init" type="xstring" value="NORMALIZED"/>
 <config key="use_global_weight_init_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="use_global_weight_init" type="xboolean" value="false"/>
+<entry key="use_global_weight_init" type="xboolean" value="true"/>
 <config key="distribution_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -195,12 +195,12 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="batch_size" type="xint" value="1"/>
+<entry key="batch_size" type="xint" value="20"/>
 <config key="epochs_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="epochs" type="xint" value="20"/>
+<entry key="epochs" type="xint" value="100"/>
 <config key="image_size_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -210,7 +210,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_double"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="learning_rate" type="xdouble" value="0.1"/>
+<entry key="learning_rate" type="xdouble" value="0.01"/>
 <config key="weight_init_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -269,27 +269,27 @@
 <config key="feature_column_selection2">
 <entry key="filter-type" type="xstring" value="STANDARD"/>
 <config key="included_names">
-<entry key="array-size" type="xint" value="16"/>
+<entry key="array-size" type="xint" value="13"/>
+<entry key="0" type="xstring" value="traveltime"/>
+<entry key="1" type="xstring" value="studytime"/>
+<entry key="2" type="xstring" value="failures"/>
+<entry key="3" type="xstring" value="famrel"/>
+<entry key="4" type="xstring" value="freetime"/>
+<entry key="5" type="xstring" value="goout"/>
+<entry key="6" type="xstring" value="Dalc"/>
+<entry key="7" type="xstring" value="Walc"/>
+<entry key="8" type="xstring" value="health"/>
+<entry key="9" type="xstring" value="absences"/>
+<entry key="10" type="xstring" value="G1"/>
+<entry key="11" type="xstring" value="G2"/>
+<entry key="12" type="xstring" value="G3"/>
+</config>
+<config key="excluded_names">
+<entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xstring" value="age"/>
 <entry key="1" type="xstring" value="Medu"/>
 <entry key="2" type="xstring" value="Fedu"/>
-<entry key="3" type="xstring" value="traveltime"/>
-<entry key="4" type="xstring" value="studytime"/>
-<entry key="5" type="xstring" value="failures"/>
-<entry key="6" type="xstring" value="famrel"/>
-<entry key="7" type="xstring" value="freetime"/>
-<entry key="8" type="xstring" value="goout"/>
-<entry key="9" type="xstring" value="Dalc"/>
-<entry key="10" type="xstring" value="Walc"/>
-<entry key="11" type="xstring" value="health"/>
-<entry key="12" type="xstring" value="absences"/>
-<entry key="13" type="xstring" value="G1"/>
-<entry key="14" type="xstring" value="G2"/>
-<entry key="15" type="xstring" value="G3"/>
-</config>
-<config key="excluded_names">
-<entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="media_graduated"/>
+<entry key="3" type="xstring" value="media_graduated"/>
 </config>
 <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
 <config key="name_pattern">
@@ -333,6 +333,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="66cc51c9-2e00-42a8-8cb8-adc73432a5da"/>
+<entry key="file_store_id" type="xstring" value="4e44c74e-43ba-4200-85e5-838863a460cd"/>
 </config>
 </config>

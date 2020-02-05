@@ -7,7 +7,7 @@
 </config>
 <config key="model">
 <entry key="targetColumn" type="xstring" value="media_graduated"/>
-<entry key="seed" type="xstring" value="1580903878824"/>
+<entry key="seed" type="xstring" isnull="true" value=""/>
 <entry key="maxLevels" type="xint" value="-1"/>
 <entry key="minNodeSize" type="xint" value="-1"/>
 <entry key="minChildSize" type="xint" value="-1"/>
@@ -18,7 +18,7 @@
 <entry key="columnFractionPerTree" type="xdouble" value="1.0"/>
 <entry key="columnAbsolutePerTree" type="xint" value="10"/>
 <entry key="isUseDifferentAttributesAtEachNode" type="xboolean" value="true"/>
-<entry key="nrModels" type="xint" value="100"/>
+<entry key="nrModels" type="xint" value="5000"/>
 <entry key="splitCriterion" type="xstring" value="InformationGainRatio"/>
 <entry key="missingValueHandling" type="xstring" value="XGBoost"/>
 <entry key="useAverageSplitPoints" type="xboolean" value="true"/>
@@ -27,26 +27,26 @@
 <config key="columnFilterConfig">
 <entry key="filter-type" type="xstring" value="STANDARD"/>
 <config key="included_names">
-<entry key="array-size" type="xint" value="13"/>
+<entry key="array-size" type="xint" value="10"/>
+<entry key="0" type="xstring" value="traveltime"/>
+<entry key="1" type="xstring" value="studytime"/>
+<entry key="2" type="xstring" value="failures"/>
+<entry key="3" type="xstring" value="famrel"/>
+<entry key="4" type="xstring" value="freetime"/>
+<entry key="5" type="xstring" value="goout"/>
+<entry key="6" type="xstring" value="Dalc"/>
+<entry key="7" type="xstring" value="Walc"/>
+<entry key="8" type="xstring" value="health"/>
+<entry key="9" type="xstring" value="absences"/>
+</config>
+<config key="excluded_names">
+<entry key="array-size" type="xint" value="6"/>
 <entry key="0" type="xstring" value="age"/>
 <entry key="1" type="xstring" value="Medu"/>
 <entry key="2" type="xstring" value="Fedu"/>
-<entry key="3" type="xstring" value="traveltime"/>
-<entry key="4" type="xstring" value="studytime"/>
-<entry key="5" type="xstring" value="failures"/>
-<entry key="6" type="xstring" value="famrel"/>
-<entry key="7" type="xstring" value="freetime"/>
-<entry key="8" type="xstring" value="goout"/>
-<entry key="9" type="xstring" value="Dalc"/>
-<entry key="10" type="xstring" value="Walc"/>
-<entry key="11" type="xstring" value="health"/>
-<entry key="12" type="xstring" value="absences"/>
-</config>
-<config key="excluded_names">
-<entry key="array-size" type="xint" value="3"/>
-<entry key="0" type="xstring" value="G1"/>
-<entry key="1" type="xstring" value="G2"/>
-<entry key="2" type="xstring" value="G3"/>
+<entry key="3" type="xstring" value="G1"/>
+<entry key="4" type="xstring" value="G2"/>
+<entry key="5" type="xstring" value="G3"/>
 </config>
 <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
 <config key="name_pattern">
@@ -98,14 +98,14 @@
 <entry key="index" type="xint" value="2"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 13, Cols: 6"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 10, Cols: 6"/>
 <entry key="port_dir_location" type="xstring" value="port_2"/>
 </config>
 <config key="port_3">
 <entry key="index" type="xint" value="3"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.base.node.mine.treeensemble2.model.TreeEnsembleModelPortObjectSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.base.node.mine.treeensemble2.model.TreeEnsembleModelPortObject"/>
-<entry key="port_object_summary" type="xstring" value="100 classifiers on 13 attributes"/>
+<entry key="port_object_summary" type="xstring" value="5000 classifiers on 10 attributes"/>
 <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
 <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
 <entry key="port_dir_location" type="xstring" value="port_3"/>
@@ -123,6 +123,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" value="filestore"/>
-<entry key="file_store_id" type="xstring" value="4ae6352b-091e-472c-990d-9ce54e675c78"/>
+<entry key="file_store_id" type="xstring" value="130c8eb6-ae07-4a9e-a1c4-845d94c1d87e"/>
 </config>
 </config>
