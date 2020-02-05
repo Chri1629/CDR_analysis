@@ -2,7 +2,7 @@
 <config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="filestore">
 <config key="filestore_keys">
 <config key="filestore_key_0">
-<entry key="storeUUID" type="xstring" value="fdd4b45b-fedb-4e30-9aa9-ad8882ada494"/>
+<entry key="storeUUID" type="xstring" value="4ae6352b-091e-472c-990d-9ce54e675c78"/>
 <entry key="index" type="xint" value="0"/>
 <entry key="name" type="xstring" value="TreeEnsemble"/>
 <entry key="iterationIndex" type="xint" value="-1"/>

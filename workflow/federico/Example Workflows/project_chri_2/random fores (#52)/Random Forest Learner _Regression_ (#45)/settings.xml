@@ -6,7 +6,7 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="targetColumn" type="xstring" value="G3"/>
+<entry key="targetColumn" type="xstring" value="media_graduated"/>
 <entry key="seed" type="xstring" value="1580903878824"/>
 <entry key="maxLevels" type="xint" value="-1"/>
 <entry key="minNodeSize" type="xint" value="-1"/>
@@ -27,7 +27,7 @@
 <config key="columnFilterConfig">
 <entry key="filter-type" type="xstring" value="STANDARD"/>
 <config key="included_names">
-<entry key="array-size" type="xint" value="15"/>
+<entry key="array-size" type="xint" value="13"/>
 <entry key="0" type="xstring" value="age"/>
 <entry key="1" type="xstring" value="Medu"/>
 <entry key="2" type="xstring" value="Fedu"/>
@@ -41,11 +41,12 @@
 <entry key="10" type="xstring" value="Walc"/>
 <entry key="11" type="xstring" value="health"/>
 <entry key="12" type="xstring" value="absences"/>
-<entry key="13" type="xstring" value="G1"/>
-<entry key="14" type="xstring" value="G2"/>
 </config>
 <config key="excluded_names">
-<entry key="array-size" type="xint" value="0"/>
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xstring" value="G1"/>
+<entry key="1" type="xstring" value="G2"/>
+<entry key="2" type="xstring" value="G3"/>
 </config>
 <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
 <config key="name_pattern">
@@ -90,21 +91,21 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 264, Cols: 19"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 264, Cols: 20"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 <config key="port_2">
 <entry key="index" type="xint" value="2"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 15, Cols: 6"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 13, Cols: 6"/>
 <entry key="port_dir_location" type="xstring" value="port_2"/>
 </config>
 <config key="port_3">
 <entry key="index" type="xint" value="3"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.base.node.mine.treeensemble2.model.TreeEnsembleModelPortObjectSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.base.node.mine.treeensemble2.model.TreeEnsembleModelPortObject"/>
-<entry key="port_object_summary" type="xstring" value="100 classifiers on 15 attributes"/>
+<entry key="port_object_summary" type="xstring" value="100 classifiers on 13 attributes"/>
 <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
 <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
 <entry key="port_dir_location" type="xstring" value="port_3"/>
@@ -122,6 +123,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" value="filestore"/>
-<entry key="file_store_id" type="xstring" value="fdd4b45b-fedb-4e30-9aa9-ad8882ada494"/>
+<entry key="file_store_id" type="xstring" value="4ae6352b-091e-472c-990d-9ce54e675c78"/>
 </config>
 </config>

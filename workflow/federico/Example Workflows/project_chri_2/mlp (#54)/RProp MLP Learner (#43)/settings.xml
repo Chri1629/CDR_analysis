@@ -25,7 +25,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="classcol" type="xstring" value="G3"/>
+<entry key="classcol" type="xstring" value="media_graduated"/>
 <config key="ignoremv_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -71,6 +71,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="4638e24f-5958-40c6-a37c-769f2079a735"/>
+<entry key="file_store_id" type="xstring" value="f18b5dc7-33a2-487d-9043-d143fd6efb8f"/>
 </config>
 </config>

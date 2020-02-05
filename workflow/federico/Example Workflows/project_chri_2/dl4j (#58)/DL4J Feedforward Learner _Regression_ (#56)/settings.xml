@@ -229,10 +229,10 @@
 <entry key="filter-type" type="xstring" value="STANDARD"/>
 <config key="included_names">
 <entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="G3"/>
+<entry key="0" type="xstring" value="media_graduated"/>
 </config>
 <config key="excluded_names">
-<entry key="array-size" type="xint" value="15"/>
+<entry key="array-size" type="xint" value="16"/>
 <entry key="0" type="xstring" value="age"/>
 <entry key="1" type="xstring" value="Medu"/>
 <entry key="2" type="xstring" value="Fedu"/>
@@ -248,8 +248,9 @@
 <entry key="12" type="xstring" value="absences"/>
 <entry key="13" type="xstring" value="G1"/>
 <entry key="14" type="xstring" value="G2"/>
+<entry key="15" type="xstring" value="G3"/>
 </config>
-<entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
+<entry key="enforce_option" type="xstring" value="EnforceInclusion"/>
 <config key="name_pattern">
 <entry key="pattern" type="xstring" value=""/>
 <entry key="type" type="xstring" value="Wildcard"/>
@@ -268,7 +269,7 @@
 <config key="feature_column_selection2">
 <entry key="filter-type" type="xstring" value="STANDARD"/>
 <config key="included_names">
-<entry key="array-size" type="xint" value="15"/>
+<entry key="array-size" type="xint" value="16"/>
 <entry key="0" type="xstring" value="age"/>
 <entry key="1" type="xstring" value="Medu"/>
 <entry key="2" type="xstring" value="Fedu"/>
@@ -284,10 +285,11 @@
 <entry key="12" type="xstring" value="absences"/>
 <entry key="13" type="xstring" value="G1"/>
 <entry key="14" type="xstring" value="G2"/>
+<entry key="15" type="xstring" value="G3"/>
 </config>
 <config key="excluded_names">
 <entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="G3"/>
+<entry key="0" type="xstring" value="media_graduated"/>
 </config>
 <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
 <config key="name_pattern">
@@ -303,7 +305,7 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="IDLE"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <entry key="factory" type="xstring" value="org.knime.ext.dl4j.base.nodes.learn.feedforward.regression.FeedforwardRegressionLearnerNodeFactory"/>
 <entry key="node-name" type="xstring" value="DL4J Feedforward Learner (Regression)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Deeplearning4J Integration"/>
@@ -316,16 +318,21 @@
 <entry key="node-feature-version" type="xstring" value="3.3.0.v201612012034"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="DL4J Feedforward Learner (Regression)"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.ext.dl4j.base.DLModelPortObjectSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.ext.dl4j.base.DLModelPortObject"/>
+<entry key="port_object_summary" type="xstring" value="Deep Learning Model"/>
+<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="66cc51c9-2e00-42a8-8cb8-adc73432a5da"/>
 </config>
 </config>

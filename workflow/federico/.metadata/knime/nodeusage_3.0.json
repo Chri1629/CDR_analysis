@@ -62,11 +62,11 @@
             },
             {
                 "id":"org.knime.base.node.preproc.filter.column.DataColumnSpecFilterNodeFactory#Column Filter",
-                "nrexecs":2,
+                "nrexecs":7,
                 "nrfails":0,
-                "exectime":2,
-                "nrcreated":2,
-                "successor":"org.knime.base.node.preproc.partition.PartitionNodeFactory#Partitioning"
+                "exectime":11,
+                "nrcreated":5,
+                "successor":"NodeContainer"
             },
             {
                 "id":"org.knime.ext.weka37.classifier.WekaClassifierNodeFactory#AttributeSelectedClassifier (3.7)",
@@ -78,41 +78,41 @@
             },
             {
                 "id":"org.knime.base.node.mine.neural.rprop.RPropNodeFactory2#RProp MLP Learner",
-                "nrexecs":0,
+                "nrexecs":4,
                 "nrfails":0,
-                "exectime":0,
+                "exectime":4200,
                 "nrcreated":1,
                 "successor":"org.knime.base.node.mine.neural.mlp2.MLPPredictorNodeFactory#MultiLayerPerceptron Predictor"
             },
             {
                 "id":"org.knime.base.node.mine.neural.mlp2.MLPPredictorNodeFactory#MultiLayerPerceptron Predictor",
-                "nrexecs":0,
+                "nrexecs":4,
                 "nrfails":0,
-                "exectime":0,
+                "exectime":1124,
                 "nrcreated":1,
-                "successor":"n/a"
+                "successor":"org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2#Linear Regression Learner"
             },
             {
                 "id":"org.knime.base.node.mine.treeensemble2.node.randomforest.learner.regression.RandomForestRegressionLearnerNodeFactory#Random Forest Learner (Regression)",
-                "nrexecs":0,
+                "nrexecs":2,
                 "nrfails":0,
-                "exectime":0,
+                "exectime":786,
                 "nrcreated":1,
                 "successor":"org.knime.base.node.mine.treeensemble2.node.randomforest.predictor.regression.RandomForestRegressionPredictorNodeFactory#Random Forest Predictor (Regression)"
             },
             {
                 "id":"org.knime.base.node.mine.treeensemble2.node.randomforest.predictor.regression.RandomForestRegressionPredictorNodeFactory#Random Forest Predictor (Regression)",
-                "nrexecs":0,
+                "nrexecs":2,
                 "nrfails":0,
-                "exectime":0,
+                "exectime":229,
                 "nrcreated":1,
-                "successor":"n/a"
+                "successor":"org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2#Linear Regression Learner"
             },
             {
                 "id":"org.knime.base.node.mine.regression.polynomial.learner2.PolyRegLearnerNodeFactory2#Polynomial Regression Learner",
-                "nrexecs":2,
+                "nrexecs":4,
                 "nrfails":0,
-                "exectime":384,
+                "exectime":445,
                 "nrcreated":1,
                 "successor":"org.knime.base.node.mine.regression.predict2.RegressionPredictorNodeFactory#Regression Predictor"
             },
@@ -126,27 +126,131 @@
             },
             {
                 "id":"org.knime.base.node.mine.regression.predict2.RegressionPredictorNodeFactory#Regression Predictor",
-                "nrexecs":2,
+                "nrexecs":4,
                 "nrfails":0,
-                "exectime":1662,
+                "exectime":1920,
                 "nrcreated":1,
-                "successor":"org.knime.ext.jfc.node.scatterplot.JfcScatterPlotNodeFactory#Scatter Plot (JFreeChart)"
+                "successor":"org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2#Linear Regression Learner"
             },
             {
                 "id":"org.knime.base.node.mine.scorer.accuracy.AccuracyScorerNodeFactory#Scorer",
-                "nrexecs":2,
+                "nrexecs":3,
                 "nrfails":0,
-                "exectime":87,
-                "nrcreated":1,
+                "exectime":127,
+                "nrcreated":2,
                 "successor":"n/a"
             },
             {
                 "id":"org.knime.ext.jfc.node.scatterplot.JfcScatterPlotNodeFactory#Scatter Plot (JFreeChart)",
-                "nrexecs":2,
+                "nrexecs":11,
                 "nrfails":0,
-                "exectime":481,
+                "exectime":1173,
+                "nrcreated":4,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.base.node.preproc.normalize3.Normalizer3NodeFactory#Normalizer",
+                "nrexecs":4,
+                "nrfails":0,
+                "exectime":80,
+                "nrcreated":2,
+                "successor":"NodeContainer"
+            },
+            {
+                "id":"org.knime.knip.io.nodes.fileref.ImageFileRefNodeFactory#Image File Linker",
+                "nrexecs":0,
+                "nrfails":0,
+                "exectime":0,
                 "nrcreated":1,
                 "successor":"n/a"
+            },
+            {
+                "id":"org.knime.ext.dl4j.base.nodes.learn.feedforward.regression.FeedforwardRegressionLearnerNodeFactory#DL4J Feedforward Learner (Regression)",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":5305,
+                "nrcreated":1,
+                "successor":"org.knime.ext.dl4j.base.nodes.predict.feedforward.regression.FeedforwardRegressionPredictorNodeFactory#DL4J Feedforward Predictor (Regression)"
+            },
+            {
+                "id":"org.knime.ext.dl4j.base.nodes.predict.feedforward.regression.FeedforwardRegressionPredictorNodeFactory#DL4J Feedforward Predictor (Regression)",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":1652,
+                "nrcreated":1,
+                "successor":"org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2#Linear Regression Learner"
+            },
+            {
+                "id":"org.knime.base.collection.list.create2.CollectionCreate2NodeFactory#Create Collection Column",
+                "nrexecs":0,
+                "nrfails":0,
+                "exectime":0,
+                "nrcreated":1,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.ext.jep.JEPNodeFactory#Math Formula",
+                "nrexecs":5,
+                "nrfails":0,
+                "exectime":67,
+                "nrcreated":1,
+                "successor":"NodeContainer"
+            },
+            {
+                "id":"org.knime.base.node.mine.regression.linear2.learner.LinReg2LearnerNodeFactory2#Linear Regression Learner",
+                "nrexecs":5,
+                "nrfails":0,
+                "exectime":636,
+                "nrcreated":4,
+                "successor":"NodeContainer"
+            },
+            {
+                "id":"org.knime.base.node.preproc.append.row.AppendedRowsNodeFactory#Concatenate",
+                "nrexecs":2,
+                "nrfails":0,
+                "exectime":2,
+                "nrcreated":2,
+                "successor":"org.knime.base.node.preproc.rename.RenameNodeFactory#Column Rename"
+            },
+            {
+                "id":"org.knime.base.node.preproc.rename.RenameNodeFactory#Column Rename",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":2,
+                "nrcreated":1,
+                "successor":"org.knime.base.node.preproc.filter.column.DataColumnSpecFilterNodeFactory#Column Filter"
+            },
+            {
+                "id":"org.knime.base.node.preproc.transpose.TransposeTableNodeFactory#Transpose",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":3,
+                "nrcreated":1,
+                "successor":"org.knime.base.node.preproc.rename.RenameNodeFactory#Column Rename"
+            },
+            {
+                "id":"org.knime.base.node.preproc.filter.row.RowFilterNodeFactory#Row Filter",
+                "nrexecs":3,
+                "nrfails":0,
+                "exectime":6,
+                "nrcreated":2,
+                "successor":"org.knime.base.node.preproc.filter.row.RowFilterNodeFactory#Row Filter"
+            },
+            {
+                "id":"org.knime.base.node.viz.table.TableNodeFactory#Interactive Table",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":0,
+                "nrcreated":1,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.ext.dl4j.base.nodes.layer.init.DL4JModelInitNodeFactory#DL4J Model Initializer",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":1,
+                "nrcreated":1,
+                "successor":"org.knime.ext.dl4j.base.nodes.learn.feedforward.regression.FeedforwardRegressionLearnerNodeFactory#DL4J Feedforward Learner (Regression)"
             }
         ],
         "metaNodes":{
@@ -158,11 +262,11 @@
         "wrappedNodes":{
         }
     },
-    "uptime":2236675,
-    "workflowsOpened":2,
+    "uptime":8604748,
+    "workflowsOpened":4,
     "remoteWorkflowsOpened":0,
     "launches":1,
-    "timeSinceLastStart":2236675,
+    "timeSinceLastStart":8604748,
     "crashes":0,
     "properlyShutDown":false
 }

@@ -10,12 +10,12 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="col_x" type="xstring" value="G3"/>
+<entry key="col_x" type="xstring" value="media_graduated"/>
 <config key="col_y_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="col_y" type="xstring" value="Prediction (G3)"/>
+<entry key="col_y" type="xstring" value="Prediction (media_graduated)"/>
 <config key="Item_Size_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_double"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -109,7 +109,7 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObjectSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObject"/>
-<entry key="port_object_summary" type="xstring" value="PNG Image 600 x 400 with 15 KB"/>
+<entry key="port_object_summary" type="xstring" value="PNG Image 600 x 400 with 14 KB"/>
 <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
 <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
@@ -117,6 +117,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="54eb737c-570b-47c1-9918-b8af29a1aea8"/>
+<entry key="file_store_id" type="xstring" value="87cb050d-5d56-4b7a-a980-2a8c4695cc41"/>
 </config>
 </config>

@@ -1,4 +1,4 @@
+file:/C:/Users/fede9/Documents/GitHub/machine_learning_project/data/student-mat.csv
 file:/home/christian/Scrivania/progetti/machine_learning_project/data/student-mat.csv
 /home/christian/Scrivania/progetti/machine_learning_project/data/student-mat.csv
-file:/C:/Users/fede9/Documents/GitHub/machine_learning_project/data/student-mat.csv
 knime://knime.workflow/data.all
