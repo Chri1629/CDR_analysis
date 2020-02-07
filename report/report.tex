@@ -15,13 +15,15 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{multicol}
+\usepackage{xcolor}
 
+\definecolor{ultramarine}{RGB}{	255,0,0} 
 
 \begin{document}
 \begin{center}
-\huge\textbf{Come valutare l'uscita di un film?}
+\huge\textbf{\textcolor{ultramarine}{Si può stimare la predisposizione di una persona all'alzheimer?}}
 
-Un'analisi delle recensioni dei film per predire la valutazione dei film.
+Un'analisi delle caratteristiche utili per predire la predisposizione di una persona all'alzheimer.
 \end{center}
 
 \begin{center}
@@ -33,113 +35,28 @@ Vittorio Bomba, Federico Luzzi,  Marco Peracchi, Christian Uccheddu
 
 \begin{center}\textbf{{Introduzione e obiettivi}}
 \\
-
-In questo lavoro l'obiettivo è quello di capire come un video di Youtube riesca ad avere successo. Per raggiungere questo scopo abbiamo deciso di analizzare i video di Youtube che si trovano in trending nelle varie ore delle giornata, studiandone caratteristiche, categorie di appartenenza, insieme a visualizzazioni, likes, dislikes, commenti e altro.
-L'obiettivo è anche quello di comprendere come cambiano le caratteristiche nei vari paesi, e cosa serve per avere successo in ognuno di questi.
-
+In questo lavoro l'obiettivo è quello di capire se si possano predire malattie quali la demenza senile e l'alzheimer a partire da una serie di caratteristiche misurabili in precedenza. Per raggiungere questo scopo abbiamo usato tecniche di classificazione per cercare di classificare un individuo come malato di demenza senile o sano, abbiamo inoltre usato delle tecniche di regressione per cercare di stimare l'indice corrispondente al grado di demenza.
 \vspace{0.3cm}
 \hrule
 \end{center}
 \begin{multicols}{2}
-\section*{Raccolta dati}
-
-In questa sezione del report verrà esposta la procedura con cui sono stati acquisiti i dati e come sono state affrontate le problematiche riscontrate.
-\subsection*{Scelta degli strumenti}
-La prima domanda che ci siamo posti riguardo al progetto è stata: "Quali sono le "V" su cui focalizzare la nostra attenzione?".
-Dopo qualche indagine preliminare abbiamo deciso che che ci saremmo concentrati su "Volume" e su "Velocity", perché i nostri dati venivano raccolti in tempo reale dalle API di Youtube e la quantità di dati aumenta costantemente con l'aumentare del tempo di presa dati.
-
-Per gestire il flusso di dati ci siamo affidati al software Kafka, permettendoci così di poter disaccoppiare la fase di lettura dei dati dalla fase di  raccolta. Uno script python (\textit{scraper\_producer.py}) si occupava del producer, continuando ad effettuare richieste alle API di youtube, mentre lo script consumer (\textit{scraper\_consumer.py}) si occupava di leggere i file memorizzati nel topic di kafka, e successivamente di immagazzinarli in un database MongoDB in formato JSON. La scelta di MongoDB è stata dettata dalla sorgente dei dati, che venivano forniti in formato documentale.
- 
-\subsection*{Qualità dati}
-
-Avendo una grande mole di dati ci siamo dovuti anche occupare di verificare la pulizia o meno del nostro dataset. Per prima cosa abbiamo notato che non c'era presenza di Missing Values, questo è stato di per sé una grande fortuna poiché di solito il Missing Replacement è una operazione molto lunga.  Ci sono state però due problematiche principali che abbiamo dovuto affrontare:
-\begin{itemize}
-	\item Ridondanza: Questo problema è nato dal fatto che i trending di Youtube sono stati presi ogni mezz'ora, con il risultato di avere molti dati simili riguardanti le stesse fasce della giornata. 
-	\item Buchi: Questo problema è nato dal fatto che Google non permette di avanzare troppe richieste per la presa dati nella stessa giornata, per arginare questo problema abbiamo utilizzato 3 chiavi diverse con cui mandare le richieste a Google in modo tale da coprire la maggior parte della giornata. Ci sono stati però dei punti in cui la presa dati non è riuscita. Il metodo che abbiamo utilizzato per riempire quei buchi è stato quello di duplicare i dati della presa dati precedente. Questo metodo è stato possibile poiché la presa dati è stat effettuata in intervalli di tempo in cui i dati non vengono modificati significativamente.
 	
-\end{itemize}
+\section*{Introduzione}
+\section*{Descrizione Dataset}
+\section*{Strutturazione Dataset}
+\section*{Clustering}
+\section*{Validazione}
+\section*{Interpretazione dei risultati}
+\begin{table}
+	\caption{h. . .i}
+	\label{tab:esempio}
+	\centering
+	\begin{tabular}{H}
+		...
+	\end{tabular}
+\end{table}
+\section*{Conclusioni}
 
-\subsection*{Scalabilità dell'algoritmo}
-
-Visto che una delle V che abbiamo deciso di usare concernenti i Big Data è stata quella relativa al volume dobbiamo occuparci di vedere come si comporta la nostra elaborazione dati con volumi di dati sempre crescenti. Per farlo ci occupiamo di effettuare la nostra analisi su partizionamenti sempre maggiori del nostro dataset e registriamo il tempo di esecuzione del nostro programma, effettuiamo poi una semplice regressione per vedere di che tipo di crescita stiamo parlando, ovviamente più la crescita è minore più il nostro algoritmo scala bene per volumi di dati maggiori. Presentiamo di seguito la registrazione dei tempi rispetto al partizionamento dei dati. 
-
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[height=0.3 \linewidth]{pict/times.png}
-%	\caption{Crescita del tempo di esecuzione rispetto all'aumentare del partizionamento.}
-%\end{figure}
-Per gestire la crescita di Volume abbiamo utilizzato il processo di sharding, che consiste nel salvare i dati attraverso molteplici macchine in modo che l'algoritmo scali orizzontalmente.
-\section*{Visualizzazione}
-Per la scelta delle visualizzazione abbiamo dovuto pensare per prima cosa a delle domande di ricerca a cui rispondere. Le domande che ci siamo posti sono le seguenti:
-\begin{itemize}
-	\item Come varia la partecipazione dei video in tendenza nel tempo?
-	\item Quali sono le categorie più viste per ogni paese?
-\end{itemize}
-
-\subsection*{Scelta features}
-Per rispondere in modo coerente alle nostre domande di ricerca abbiamo deciso di concentrarsi sulle seguenti features del nostro dataset.
-\begin{itemize}
-	\item Numero di visualizzazioni.
-	\item Numero di like.
-	\item Numero di dislike.
-	\item Numero di commenti.
-	\item Numero di iscritti ad un canale.
-\end{itemize}
-
-A partire da queste feature abbiamo inoltre definito un indice fittizio che abbiamo deciso di denominare \textit{Indice di partecipazione.} Questo indice ci è servito per capire quale fosse il video con il maggior numero di partecipazioni rispetto al numero di visualizzazioni ottenute in modo da poter capire quanto le tendenze siano influenzate da questo indice. In particolare:
-\[ I = \frac{like+dislike+comment}{views}\]
-\subsection*{Scelta della visualizzazione}
-La visualizzazione che meglio si presta a dati con natura fortemente temporale è una visualizzazione a righe. Per arricchire la visualizzazione di contenuti abbiamo inserito ulteriori caratteristiche a questa visualizzazione. In particolare la visualizzazione è composta nel seguente modo:
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[height=0.3 \linewidth]{pict/prima.png}
-%	\caption{Prima infografica.}
-%\end{figure}
-In questo caso 
-\subsection*{Valutazione della qualità}
-La valutazione della qualità della nostra infografica si è articolata in tre macro passaggi:
-
-\paragraph{User Test} Durante questa fase ci siamo occupati di sottoporre la nostra infografica a 3 persone lasciando completa libertà di esplorazione. Le varie esplorazioni sono state registrate in modo da far sì che potessero emergere le diverse problematiche di cui non ci siamo accorti in fase di realizzazione delle infografiche. Esponiamo le problematiche emerse durante questa fase di valutazione e le correzioni applicate:
-
-\begin{itemize}
-	\item Problema 1: soluzione 1
-	\item Problema 2: soluzione 1
-	\item Problema 3: soluzione 1
-\end{itemize}
-\paragraph{Risultati dei task} Durante questa fase ci siamo occupati di sottoporre tre diverse richieste a 24 utenti che dovevano essere soddisfatte esplorando interattivamente la nostra infografica. In particolare i task da risolvere sono stati i seguenti:
-\begin{itemize}
-	\item Qual'è il video con l'indice di partecipazione più alto in Italia?
-	\item Qual'è il video con l'indice di partecipazione più alto tra tutti i paesi?
-	\item Che categoria di video dovresti utilizzare se volessi creare contenuti che piacciono in USA?
-\end{itemize}Ci siamo occupati di registrare i tempi in cui gli utenti riuscivano a completare questu obiettivi e abbiamo visualizzato questi record nei seguenti violin plot:
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[height=0.3 \linewidth]{pict/violin_plot.png}
-%	\caption{Tempi di completamento dei task.}
-%\end{figure}
-Questa visualizzazione è utile per capire se le nostre infografiche sono troppo dispersive o riescono a centrare gli obietivi facilmente.
-\paragraph{Questionari} Per quanto riguarda quest'ultima fase ci siamo occupati di rivolgere un questionario della valutazione della qualità a 24 persone. In particolare il questionario è stato articolato nella seguente maniera:
-\begin{itemize}
-	\item Come valuti la chiarezza dell' infografica?
-	\item Come valuti l'utilità dell'infografica?
-	\item Quanto valuti la bellezza dell'infografica?
-	\item Come valuti l'intuitività dell'infografica?
-	\item Quanto è stata informativa l'infografica?
-	\item Come valuti complessivamente l'infografica?
-\end{itemize}
-Le risposte sono state registrate grazie al tool: Questionari di Google. Una volta registrate le risposte ci siamo occupati di vedere se la valutazione complessiva dell'infografica fosse coerente con una ricostruzione complessiva data dalla regressione con i coefficienti di Cabitza-Locoro.
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[height=0.3 \linewidth]{pict/box_plot.png}
-%	\caption{Dispersione delle risposte del questionario.}
-%\end{figure}
-E' stato comodo usare un box plot per la registrazione di queste risposte poiché la media è un indicatore di tendenza centrale e non fornisce alcuna informazione sulla distribuzione di questi dati.
-Per quanto riguarda invece della coerenza della valutazione complessiva rispetto alla ricostruzione data dai coefficienti abbiamo avuto la seguente distribuzione:
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[height=0.3 \linewidth]{pict/regressione.png}
-%	\caption{$R^{2} = 0.75$.}
-%\end{figure}
 \end{multicols}
 
 \end{document}
