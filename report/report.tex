@@ -41,25 +41,42 @@ In questo lavoro l'obiettivo è quello di capire se si possano predire malattie 
 \end{center}
 \begin{multicols}{2}
 	
-\section*{Introduzione}
-\section*{Descrizione Dataset}
+\section{Introduzione}
+cos'è la demenza facendo un discorso, utilità della ricerca
+previsione della demneza mediante dei modelli che possono andare a supporto del lavoro del medico in particolare il CDR.
+\section{Descrizione Dataset}
 Il dataset è composto come segue:
+...
+
 \begin{table}[H]
-\begin{tabular}{cc}
-	\hline
-	Attributo         & Significato         \\
-	\hline
-	Random Forest          & 0            \\
-	Ensemble Tree         & 1           \\
-	\hline
-\end{tabular}
+	\begin{tabular}{cc}
+		\hline
+		Attributo         & Significato         \\
+		\hline
+		Random Forest          & 0            \\
+		Ensemble Tree         & 1           \\
+		\hline
+	\end{tabular}
 \end{table}
 
-asbhjkashbjas
-\section*{Strutturazione Dataset}
-\section*{Clustering}
-\section*{Validazione}
-\section*{Interpretazione dei risultati}
+\section{data pre-processing} (correlazioni tra variabili e esclusione variabili inutili) 
+Missing values
+
+partizionamento
+\section{Modelli}
+elenchiamo i modelli utilizzati e descriviamo
+
+li categoriziamo per tipo: probabilistici, alberellibelli, neural network
+\section{Performance Evaluation}
+per ogni caso mettiamo misure di accuracy, recall, precision e f-measure
+
+scriviamo comparazioni tra di essi
+\subsection{Holdout}
+\subsection{Iterated Holdout}
+\subsection{Cross-validation}
+\subsection{Feature selection}
+
+\section{Interpretazione dei risultati}
 
 \begin{tabular}{ccc}
 	\hline
@@ -69,8 +86,10 @@ asbhjkashbjas
 	Ensemble Tree         & 1     & uno           \\
 	\hline
 \end{tabular}
-\section*{Conclusioni}
+\section{Conclusioni}
+risposta alla domanda di ricerca: siamo riusciti o meno a trovare un buon modello?
 
+miglioramenti futuri: più dati e più casi CDR alto. Cercare di capire come modellare l'alzaimer.
 \end{multicols}
 
 \end{document}
