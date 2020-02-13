@@ -1,0 +1,34 @@
+\section{Modelli}
+Data la natura discreta della variabile di target CDR abbiamo deciso di affrontare la criticità come un problema di classificazione.
+Sono stati valutati diversi modelli appartenenti a varie tecniche di classificazione per identificare la più adatta al nostro caso. Di seguito vengono elencati i modelli provati.
+\begin{itemize}
+\setlength\itemsep{0.2em}
+    \item Tecniche Euristiche (decision tree): Random Forest, J48
+    \item Tecniche Regression Based: Regressione Logistica
+    \item Tecniche di Separazione: Multi Layer Perceptron
+    \item Tecniche Probabilistiche: Naive Bayes, Naive Bayes Tree
+\end{itemize}
+
+\subsection{Tecniche Euristiche} 
+
+\paragraph{J48:} è una tecnica basata sul concetto di albero decisionale, in cui la particolarità è quella di riuscire a classificare anche dati nominali. Nella nostra implementazione abbiamo impostato un fattore di confidenza di 0.25 e un numero di fold pari a 3.
+
+\paragraph{Random Forest:} La Random Forest è una tecnica basata su comitati di alberi decisionali. Nella nostra implementazione sono stati inseriti 10 alberi con un fattore di confidenza di 0.25 e 3 folds.
+
+\subsection{Tecniche regression based}
+
+\paragraph{Regressione logistica:}è una tecnica di classificazione basata sulla regressione, viene infatti calcolata la probabilità a posteriori che la variabile target restituisca il valore di input. La formula usata dal nodo Knime per calcolare la probabilità associata alla classe j-esima, a meno dell'ultima classe, è la seguente:
+\[P_j(X_i) = \frac{e^{X_iBj}}{\sum_{j=1}^{k-1}e^{X_iBj}+1}\]
+Mentre la probabilità associata all'ultima classe è espressa come:
+\[1- \sum_{j=1}^{k-1}P_j(X_i)\]
+Per trovare la regressione migliore è necessario minimizzare la funzione Likelihood relativa a questa distribuzione di probabilità.
+
+\subsection{Tecniche di separazione}
+
+\paragraph{MLP (Multi Layer Perceptron):} è un modello di classificazione basato sulla separazione dello spazio degli attributi, più precisamente consiste in neuroni che comunicano in modo feedforward dalle variabili di input alla variabile di classe. In particolare è stata predisposta una rete a \textbf{2 strati nascosti} con \textbf{5 neuroni per strato.} Questa scelta di parametri è dovuta ad una serie di prove empiriche effettuate per l'ottimizzazione della classificazione. 
+
+\subsection{Tecniche probabilistiche}
+
+\paragraph{Naive Bayes:} è una tecnica di classificazione basata sull'applicazione del teorema di Bayes; un classificatore di  Bayes combina il modello con una regola decisionale. Questo usa la regola per assegnare  alla variabile $\hat{y}$ l'indice di classe $C_k$ da predire. Nel metanodo inserito in Knime abbiamo usato la regola che massimizza la funzione che calcola la probabilità di ottenere la predizione $\hat{y}=C_k$ dato il record $\{x_i\}$, ovvero la \textbf{MAP decision rule}: 
+\[\hat{y} = \argmax_{k \in \{k_1, k_1,...,k_n\}} (p(C_k)\prod\limits_{i = 1}^{n}p(x_i|C_k)) \]
+\paragraph{Naive Bayes tree:} è un modello che genera un albero decisionale in cui è implementato un classificatore di Bayes in corrispondenza dei nodi.

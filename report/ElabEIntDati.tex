@@ -1,0 +1,197 @@
+\section{Elaborazione e interpretazione dei dati}
+%Io farei notare di più i nomi degli indici in modo che saltino all'occhio nella lettura (con un grassetto o usare il paragraph) (fede)
+Per valutare i risultati sono stati utilizzati diversi indici, primo fra tutti l'\textit{accuracy}. L'accuracy misura l'affidabilità del modello a predire risultati corretti su nuovi dati. Per calcolare l'accuracy sul dataset $D$, con $n$ entrate, a predire la variabile $y_i$ dati i valori $\{x_i\}$ ($f(x_i)$ rappresenta la previsione) si sfrutta la seguente formula:
+\[acc(D) = 1 - \frac{1}{n}\sum_{j=1}^{n}L(y_i,f(x_i))\]
+L rappresenta la  \textit{loss function}, funzione che assegna valore 1 se $y_i \neq f(x_i)$ (cioè la predizione è errata) e 0 viceversa. Si può notare quindi che all'aumentare delle previsione errate diminuisce il valore dell'accuracy.
+I modelli utilizzati restituiscono la matrice di confusione. Questa contiene al suo interno diversi valori, nel nostro caso i valori di CDR che potevano essere predetti erano 0, 0.5, 1 e 2. Un esempio di matrice di confusione appare così:
+
+\newcommand\items{4}   %Number of classes
+\arrayrulecolor{white} %Table line colors
+\begin{center}
+\noindent\begin{tabular}{cc*{\items}{|E}|}
+\multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{\items}{c}{CDR} \\ \hhline{~*\items{|-}|}
+\multicolumn{1}{c}{} & 
+\multicolumn{1}{c}{} & 
+\multicolumn{1}{c}{0} & 
+\multicolumn{1}{c}{0.5} & 
+\multicolumn{1}{c}{1} &
+\multicolumn{1}{c}{2} \\ \hhline{~*\items{|-}|}
+\multirow{\items}{*}{\rotatebox{90}{$CDR_{pred}$}} 
+&0  & 60 & 8 & 0 & 0 \\ \hhline{~*\items{|-}|}
+&0.5 & 12 & 18 & 6 & 0 \\ \hhline{~*\items{|-}|}
+&1  &  1 & 1 & 10 & 0\\ \hhline{~*\items{|-}|}
+&2  & 0 & 1 & 0 & 0\\ \hhline{~*\items{|-}|}
+\end{tabular}
+\end{center}
+
+Sulla diagonale si possono notare i valori previsti correttamente dal modello, mentre gli altri rappresentano valori previsti in maneira scorretta.
+
+La accuracy è calcolata sommando i valori sulla diagonale e dividendoli per il totale. 
+
+Il secondo indice utilizzato è la \textit{precision}. Viene definita come il rapporto tra i valori predetti correttamente della variabile che consideriamo diviso il numero di valori totali che appaiono nel dataset per quella variabile. Per esempio la precision della variabile 0.5 è:
+\[P(0.5) = \frac{18}{12+18+6} = 0.50\]
+
+Un altro indice sfruttato è la \textit{recall}. La recall viene calcolata sfruttando di nuovo il numero di valori predetti correttamente per la variabile considerata diviso il numero di valori totali predetti dal modello per quella variabile. Nuovamente riproponiamo come esempio la variabile 0.5, per cui la recall sarà:
+\[R(0.5) = \frac{18}{8+18+1+1} = 0.64\]
+
+L'ultimo indice che abbiamo sfruttato è la \textit{F-measure}. Viene calcolato sfruttando gli indici elencati precedentemente:
+\[F = \frac{2\cdot r \cdot p}{r + p}\]
+Valori elevati della F-measure indicano valori elevati di entrambi recall e precision. Pre concludere l'esempio portato precedentemente otteniamo:
+\[F(0.5) = \frac{2 \cdot 0.50 \cdot 0.64}{0.50 + 0.64}=0.56\]
+Per calcolare il valore di un indice complessivo di ogni modello abbiamo preso quindi la media aritmetica degli indici calcolati sulle singole classi di quel modello nel modo seguente:
+\[I_{model} = \frac{I(0) + I(0.5)+ I(1) + I(2)}{4}\]
+Con I: accuracy, F-Measure, recall, precision.
+
+In questo modo è possibile confrontare i modelli.
+
+\subsection{Holdout}
+La tecnica di Holdout consiste nel dividere il dataset in due partizioni usando un campionamento stratificato, ovvero mantenendo le proporzioni degli attributi delle partizioni uguali alle proporzioni tra gli attributi nel dataset di partenza. Questo metodo permette di sfruttare una parte del dataset come \textit{train}, per addestrare il codice, e una parte come \textit{test}, per valutare le predizioni fatte. Le misure di performance vengono eseguite sulla partizione di test. 
+La problematica principale di questa tecnica è la dipendenza dell'accuracy dal partizionamento iniziale. Determinate divisioni potrebbero sovrastimare o sottostimare l'accuracy.
+
+
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+    \centering
+    \begin{tabular}{ccccc}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.511 & 0.512 & 0.504 & 0.748 \\
+     NB & 0.471 & 0.533 & NaN & 0.756 \\
+     NBTree & 0.536 & 0.522 & 0.527 & 0.748 \\
+     J48 & 0.439 & 0.443 & 0.440 & 0.691 \\
+     RF & 0.499 & 0.509 & 0.503 & 0.740 \\
+     Log & 0.525 & 0.573 & NaN & 0.780 \\
+     \hline
+    \end{tabular}
+    \caption{Misure di valutazione relative ai diversi modelli con il metodo holdout}
+\end{table}
+
+INSERIRE INTERPRETAZIONE DEI RISULTATI
+\subsection{Iterated Holdout}
+
+La tecnica dell'iterated holdout consiste nell'iterare il metodo descritto nel paragrafo precedente. In tal modo si cerca di superare l'incoveniente della dipendenza dal partizionamento eseguendo più volte esso in maniera sempre casuale. La accuracy è calcolata semplicemente con una media di tutti i risultati ottenuti dai vari partizionamenti. La criticità del metodo risiede nell'impossibilità di controllare le divisioni del dataset, che in caso di valori molto sbilanciati potrebbe portare a risultati poco sensati di accuracy.
+
+
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{ccccc}
+
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.489 & 0.500 & 0.485 & 0.722 \\
+     NB & 0.486 & 0.516 & 0.482 & 0.728 \\
+     NBTree & 0.455 & 0.481 & 0.453 & 0.689 \\
+     J48 & 0.464 & 0.472 & 0.462 & 0.684 \\
+     RF & 0.492 & 0.506 & 0.498 & 0.733 \\
+     Log & 0.473 & 0.485 & 0.464 & 0.711 \\
+     \hline
+\end{tabular}
+\caption{Misure di valutazione relative ai diversi modelli con il metodo iterated holdout}
+\end{table}
+
+INSERIRE INTERPRETAZIONE DEI RISULTATI
+
+\subsection{Cross-validation}
+La cross-validation utilizza un metodo leggermente diverso dall'iterated holdout. Il dataset viene suddiviso in diverse parti, di cui una verrà utilizzata come test e le altre come train. La accuracy viene calcolata nuovamente con una media.
+La cross-validation permette inoltre di controllare il metodo di partizionamento, nel nostro caso abbiamo utilizzato un campionamento stratificato, a causa dei valori abbastanza sbilanciati della classe CDR. In tal modo abbiamo potuto garantire all'interno di ogni partizione la giusta proporzione tra i vari punteggi.
+
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{c c c c c}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.457 & 0.499 & 0.471 & 0.698 \\
+     NB & 0.498 & 0.541 & NaN & 0.741 \\
+     NBTree & 0.456 & 0.487 & 0.466 & 0.722 \\
+     J48 & 0.433 & 0.455 & 0.441 & 0.674 \\
+     RF & 0.487 & 0.499 & 0.492 & 0.736 \\
+     Log & 0.493 & 0.529 & Nan & 0.744 \\
+     \hline
+\end{tabular}
+\caption{Misure di valutazione relative ai diversi modelli con il metodo cross validation}
+\end{table}
+
+INSERIRE INTERPRETAZIONE DEI RISULTATI
+
+\subsection{Feature selection}
+
+Con l'obiettivo di migliorare le performance dei modelli e l'interpretabilità degli stessi, vengono effettuate delle feature selection. Si applica un'ottimizzazione di tipo \textbf{Wrapper}: un classificatore estrae gli attributi rilevanti con i quali viene trainato il nuovo modello. Si utilizza lo stesso classificatore come wrapper e vengono provati tutti i modelli definiti in precedenza. Il dataset viene suddiviso inizialmente in du
+
+
+
+ACCURACY
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{c c c c c}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.518 & 0.556 & 0.529 & 0.780 \\
+     NB & 0.471 & 0.520 & 0.479 & 0.740 \\
+     NBTree & 0.521 & 0.531 & 0.518 & 0.764 \\
+     J48 & 0.484 & 0.494 & NaN & 0.740 \\
+     RF & 0.521 & 0.531 & 0.518 & 0.764 \\
+     Log & 0.515 & 0.537 & 0.593 & 0.764 \\
+     \hline
+\end{tabular}
+\caption{}
+\end{table}
+
+RECALL
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{c c c c c}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.527 & 0.544 & 0.529 & 0.772 \\
+     NB & 0.478 & 0.536 & 0.490 & 0.748 \\
+     NBTree & 0.505 & 0.530 & NaN & 0.764 \\
+     J48 & 0.508 & 0.530 & 0.513 & 0.764 \\
+     RF & 0.512 & 0.495 & NaN & 0.675 \\
+     Log & 0.540 & 0.554 & 0.546 & 0.780 \\
+     \hline
+\end{tabular}
+\caption{}
+\end{table}
+
+PRECISION
+
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{c c c c c}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.545 & 0.558 & 0.549 & 0.764 \\
+     NB & 0.478 & 0.536 & 0.490 & 0.748 \\
+     NBTree & 0.533 & 0.559 & 0.540 & 0.780 \\
+     J48 & 0.495 & 0.510 & 0.495 & 0.724\\
+     RF & 0.424 & 0.446 & NaN & 0.634 \\
+     Log & 0.544 & 0.572 & 0.555 & 0.789 \\
+     \hline
+\end{tabular}
+\caption{}
+\end{table}
+
+F-MEASURE
+
+\begin{table}[H]
+\tabcolsep=0.10cm
+\small
+\begin{tabular}{c c c c c}
+     Modello & Recall & Precision & F-Measure & Accuracy  \\
+     \hline
+     MLP & 0.545 & 0.558 & 0.549 & 0.764 \\
+     NB & 0.471 & 0.520 & 0.479 & 0.740 \\
+     NBTree & 0.505 & 0.530 & NaN & 0.764 \\
+     J48 & 0.494 & 0.512 & 0.499 & 0.740 \\
+     RF & 0.504 & 0.560 & 0.523 & 0.764 \\
+     Log & 0.544 & 0.572 & 0.555 & 0.789 \\
+     \hline
+\end{tabular}
+\caption{}
+\end{table}

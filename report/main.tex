@@ -1,0 +1,84 @@
+\documentclass[10pt, a4paper,openany]{article}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\restylefloat{table,figure}
+\usepackage{graphicx}	
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\geometry{a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,%
+	    heightrounded,bindingoffset=5mm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{hyperref}
+%\usepackage{url}
+%inizia qui aggiunta
+\usepackage{collcell}
+\usepackage{hhline}
+\usepackage{pgf}
+\usepackage{multirow}
+
+\def\colorModel{hsb} %You can use rgb or hsb
+
+\newcommand\ColCell[1]{
+  \pgfmathparse{#1<50?1:0}  %Threshold for changing the font color into the cells
+    \ifnum\pgfmathresult=0\relax\color{white}\fi
+  \pgfmathsetmacro\compA{0}      %Component R or H
+  \pgfmathsetmacro\compB{#1/100} %Component G or S
+  \pgfmathsetmacro\compC{1}      %Component B or B
+  \edef\x{\noexpand\centering\noexpand\cellcolor[\colorModel]{\compA,\compB,\compC}}\x #1
+  } 
+\newcolumntype{E}{>{\collectcell\ColCell}m{0.4cm}<{\endcollectcell}}  %Cell width
+\newcommand*\rot{\rotatebox{90}}
+%Finisce qua
+\DeclareMathOperator*{\argmax}{arg\,max}
+\begin{document}
+\begin{center}
+\textbf{{La demenza senile: valutazione da un punto di vista statistico}}
+\end{center}
+
+\begin{center}
+Vittorio Bomba, Federico Luzzi,  Marco Peracchi, Christian Uccheddu
+\end{center}
+
+\hrule
+\vspace{0.3cm}
+
+\begin{center}\textbf{{Sommario}}
+\end{center}
+
+La demenza senile è un disturbo delle funzioni intellettive legate alla memoria, al linguaggio e al pensiero che colpisce individui in età avanzata, ovvero soggetti con un età superiore ai sessant'anni. Tale malattia accoglie al suo interno diverse sfumature, che tengono conto della sua natura e delle sue cause, di seguito ne verranno indicate alcune:
+\begin{itemize}
+    \item Demenza degenerativa, che include l'Alzheimer, attribuibile a difetti genetici
+    \item Demenza vascolare, derivante dal susseguirsi di microinfarti ripetuti che distruggono il tessuto cerebrale
+    \item Demenza reversibile, derivante da disfunzioni che possono essere corrette
+\end{itemize}
+Data la definizione molto generica e qualitativa di demenza, non esistono parametri clinici che possano univocamente certificare il disturbo, che viene attestato dal medico sulla base di esami medici e parametri ambientali. La necessità di valutare accuratamente la serietà di questa  disfunzione ha portato alla creazione di un test, noto come CDR (Clinical Dementia Rating), una valutazione numerica assegnata dal medico che riporta la gravità della demenza sulla base di un'intervista strutturata per verificare la smemoratezza del paziente. \\
+L'obiettivo del progetto è stimare il valore del CDR sulla base di modelli di machine learning, questo potrebbe essere utile per sostituire l'intervista al paziente o per fungere da supporto al medico nell'assegnazione del valore CDR. 
+\vspace{0.3cm}
+\hrule
+\begin{multicols}{2}
+\tableofcontents
+\input{introduzione}
+\input{descDataset}
+\input{dataPreProcessing}
+\input{modelli}
+\input{ElabEIntDati}
+\input{conclusioni}
+\begin{thebibliography}{1}
+	\bibitem{a:tesi}\href{https://surfer.nmr.mgh.harvard.edu/fswiki/eTIV}{\emph{eTIV-estimated Total Intracranial Volume}}
+	\bibitem{b:tesi}\href{https://it.wikipedia.org/wiki/Demenza}{\emph{Demenza}}
+	\bibitem{c:tesi}\href{https://it.wikipedia.org/wiki/Mini-Mental_State_Examination}{\emph{Mini-Mental State Examination}}
+	\bibitem{d:tesi}\href{https://it.wikipedia.org/wiki/Clinical_Dementia_Rating}{\emph{Clinical Dementia Rating}}
+	\bibitem{e:tesi}\href{https://pdfs.semanticscholar.org/f078/58e6d1c1463367e1157f2c127b1d1a4652fd.pdf}{\emph{Analysis of Human Brain MRI}, RICHARD NORDENSKJÖLD}
+\end{thebibliography}
+
+\end{multicols}
+\end{document}
+
+
