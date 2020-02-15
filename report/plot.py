@@ -5,7 +5,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--output', type=str, required=True, help="Inserire la directory corrente")
+parser.add_argument('-d', '--output', type=str, required=True, help="Inserire la directory corrente", default="./")
 args = parser.parse_args()
 
 
@@ -51,7 +51,7 @@ def scatter_plot(x, y):
     fig.savefig(args.output + '/scatter_plot.png', bbox_inches='tight', dpi = 600)
 
 def quality():
-    dati = pd.read_csv("oasis_merge.csv")
+    dati = pd.read_csv("oasis_longitudinal.csv")
     print(dati.head())
     data = dati['CDR']
     print(data)
